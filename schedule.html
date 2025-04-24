@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Schedule Page for Kiddo Heaven">
+	<link rel="stylesheet" href="Style.css">
+    <title>Schedule</title>
+	<style>
+
+
+
+table {
+    width:60%;
+    border-collapse: collapse; 
+	border-spacing: 0; /* Remove space between rows */
+	table-layout:fixed;
+	
+}
+
+th, td {
+    padding: 0.625em;/*10px*/
+    border: 0.0625em solid #ddd;
+    text-align: center;
+	font-size: 0.75em; /* 12px Smaller font size */
+}
+
+th {
+  font-weight: bold;
+}
+
+td, th {
+    width: auto; 
+}
+td{
+height: 3em;
+}
+table caption {font-family:Arial;font-weight:bold;font-size:2em;}
+
+thead {color:white;}
+tbody  {color:black;background:white;}
+tfoot {color:black;background:orange;}
+
+/*Styling the table itself */
+#schedule {
+    width: 90%;
+    margin-top: 0.0625em;
+    border:0.125em solid #000; /* Add border to the table */
+	 margin-left: auto;
+    margin-right: auto;
+	
+}
+
+#schedule2 {
+    width: 90%;
+    margin-top: 1.25em; /* 20px */
+    border:  0.125em solid #000; /* 2px border Add border to the table */
+	 margin-left: auto;
+    margin-right: auto;
+	margin-bottom: 1.875em; /* 30px */
+}
+
+#schedule th{background-color:  #FFDA76;}
+
+#schedule td, #schedule th {
+    text-align: center;
+}
+
+#schedule2 th{background-color:  #FF4E88;}
+
+#schedule td#Khalid {
+    background-color: #FFDA76;
+}
+
+#schedule2 td#Sofia {
+    background-color: #FF4E88;
+}
+ 
+#current-week-date{
+    background-color:#FFDA76
+}
+
+/* Mobile Styles */
+    @media (max-width: 600px) {	
+        table {
+            width:100%;
+			display: block; /* Ensures the table becomes block-level */
+            overflow-x: auto;
+			white-space:nowrap;
+			
+			
+            
+        }
+        th, td {
+            padding: 0.5em;
+        }
+
+        
+        
+    }
+	
+	#Administratorpage{
+	font-weight:bold; 
+	}
+	
+	
+	</style>
+</head>
+<body>
+
+    <!-- Navbar -->
+     <nav id="navbar">
+        <div id="navdiv"> 
+            <div id="logo">
+                <a href="index.html"><img src="images/logo.png" id="logoimage" alt="logo"></a>
+            </div>
+            <ul>
+                <li><a href="AdministratorDashboard.html" class="Page" accesskey="a" title="Alt + A (Admin Dashboard)"><strong>Administrator dashboard</strong></a></li>
+                <li><a href="ParentDashboard.html" class="Page" accesskey="p" title="Alt + P (Parent Dashboard)">Parent dashboard</a></li>
+                <li><a href="Coaches.html" class="Page" id="coachesPage" accesskey="c" title="Alt + C (Coaches Page)">Coaches</a></li>
+                <li><a href="Activities.html" class="Page" accesskey="t" title="Alt + T (Activities Page)">Activities</a></li>
+            </ul>
+        </div>
+    </nav>
+	
+	
+
+    <!-- Breadcrumbs -->
+    <p class="breadcrumbs">
+        <a href="index.html">Home </a>
+        <a href="AdministratorDashboard.html">Administrator Dashboard </a>
+        <a href="schedule.html">Schedule</a>
+    </p>
+    <!-- End Breadcrumbs -->
+
+    <!-- Page Title -->
+    <div class="PageTitleContainer"><div class="PageTitle"><h1>Schedule</h1></div></div>
+    <br>
+    <div id="current-week-date" style="font-size: 1.25em; text-align: center; margin-bottom: 1em; ;color:white;"></div>
+
+    <!-- Schedule Table -->
+    <table id="schedule">
+	<caption>Karate Schedule</caption>
+        <thead>
+            <tr>
+                <th ></th> 
+                <th >2025</th>
+				<th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+            <tr>
+			    <th>Coach Name</th>
+                <th>Time</th>
+				<th>Sport</th>
+                <th>Sport</th>
+                <th>Sport</th>
+                <th>Sport</th>
+                <th>Sport</th>
+                <th>Sport</th>
+                <th>Sport</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="Khalid" rowspan="11" >Khalid</td> <!-- Added  in the Coach Name column and made it span across all time slots -->
+                <td>09:00 - 09:30</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td style="background-color:gray"></td>
+
+            </tr>
+            <tr>
+                <td>09:30 - 10:30</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td style="background-color:gray"></td>
+
+            </tr>
+            <tr>
+                <td>10:30 - 11:00</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td style="background-color:gray"></td>
+
+            </tr>
+            <tr>
+                <td>11:00 - 12:00</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td style="background-color:gray"></td>
+				
+
+            </tr>
+            <tr>
+                <td>12:00 - 12:30</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td style="background-color:gray"></td>
+
+			</tr>
+            <tr>
+                <td>12:30 - 13:30</td>
+				<td style="background-color:gray">Break</td>
+                <td style="background-color:gray">Break</td>
+                <td style="background-color:gray">Break</td>
+                <td style="background-color:gray">Break</td>
+                <td style="background-color:gray">Break</td>
+                <td style="background-color:gray">Break</td>
+				<td style="background-color:gray">Break</td>
+
+		  </tr>
+            <tr>
+                <td>13:30 - 14:00</td>
+                <td rowspan="4">karate</td>
+                <td rowspan="4">karate</td>
+                <td rowspan="4">karate</td>
+               <td rowspan="4">karate</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td rowspan="4">karate</td>
+		   </tr>
+            <tr>
+                <td>14:00 - 15:00</td>
+                
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				
+            </tr>
+            <tr>
+                <td>15:00 - 15:30</td>
+                
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				
+            </tr>
+            <tr>
+                <td>15:30 - 16:00</td>
+                
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				
+            </tr>
+            <tr>
+                <td>16:00 - 17:00</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td style="background-color:gray"></td>
+            </tr>
+        </tbody>
+    </table>
+	
+	<!-- Schedule Table -->
+    <table id="schedule2">
+	<caption>Horse Riding Schedule</caption>
+        <thead>
+            <tr>
+                <th ></th> 
+                <th >2025</th>
+				<th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+            <tr>
+                <th>Coach Name</th>
+                <th>Time</th>
+				<th>Sport</th>
+                <th>Sport</th>
+                <th>Sport</th>
+                <th>Sport</th>
+                <th>Sport</th>
+                <th>Sport</th>
+                <th>Sport</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="Sofia" rowspan="11">Sofia</td> <!-- Added Sofia in the Coach Name column and made it span across all time slots -->
+                <td>09:00 - 09:30</td>
+                <td rowspan="5">Horse Riding</td>
+                <td rowspan="5">Horse Riding</td>
+                <td rowspan="5">Horse Riding</td>
+               <td rowspan="5">Horse Riding</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td rowspan="5">Horse Riding</td>
+
+            </tr>
+            <tr>
+                <td>09:30 - 10:30</td>
+				
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				
+
+            </tr>
+            <tr>
+                <td>10:30 - 11:00</td>
+                
+                
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				
+
+            </tr>
+            <tr>
+                <td>11:00 - 12:00</td>
+                
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				
+
+            </tr>
+            <tr>
+                <td>12:00 - 12:30</td>
+                
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				
+
+			</tr>
+            <tr>
+                <td>12:30 - 13:30</td>
+                 <td style="background-color:gray">Break</td>
+                <td style="background-color:gray">Break</td>
+                <td style="background-color:gray">Break</td>
+                <td style="background-color:gray">Break</td>
+                <td style="background-color:gray">Break</td>
+                <td style="background-color:gray">Break</td>
+				<td style="background-color:gray">Break</td>
+
+		  </tr>
+            <tr>
+                <td>13:30 - 14:00</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td style="background-color:gray"></td>
+		   </tr>
+            <tr>
+                <td>14:00 - 15:00</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td style="background-color:gray"></td>
+            </tr>
+            <tr>
+                <td>15:00 - 15:30</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td style="background-color:gray"></td>
+            </tr>
+            <tr>
+                <td>15:30 - 16:00</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td style="background-color:gray"></td>
+            </tr>
+            <tr>
+                <td>16:00 - 17:00</td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+                <td style="background-color:gray"></td>
+				<td style="background-color:gray"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Footer -->
+      <footer>
+        <div id="footerContainer">
+        <div id="footer">
+            <div class="footer-section" id="footer-section-logo"><img src="images/logo.png" alt="logo" ></div>
+
+
+                 <div class="footer-section">
+                    
+                    <h4 id="contactUs">Contact Us</h4>
+                    <div class="contactus">
+                        
+
+                       <div>
+                         <img src="images/phone.png" alt="phone" id="phoneIcon" class="ContactIcons"> 
+                         <p id="phone">+966&nbsp;53667&nbsp;2891</p>
+                     </div>
+                      <div>
+                         <img src="images/mail.png" alt="mail" id="mailIcon" class="ContactIcons"> 
+                         <p id="mail">KiddoHeaven@gmail.com</p>
+                     </div>
+                    
+                      <div>
+                         <img src="images/location.png" alt="location" id="locationIcon" class="ContactIcons">
+                          <p id="location">Riyadh, Saudi Arabia</p>
+                     </div>
+                
+                    </div>
+                    <br>
+                   
+                </div>
+                
+
+                <div class="footer-section">
+                    <h4 id="socialMedia" >Social Media</h4>
+                    <div id="socialMediaIcons" ><a href="https://www.instagram.com/kidd.oheaven?igsh=dXhuenZjeWZwYnlu"><img src="images/instagram.png" alt="instagram" class="ContactIcons"></a> <a href="https://www.facebook.com/share/1AMUM8kzv4/?mibextid=wwXIfr" ><img src="images/facebook.png" alt="facebook" class="ContactIcons"> </a><a href="https://x.com/kiddo_heaven?s=21"><img src="images/x.png" alt="x" class="ContactIcons"></a></div>
+                </div>
+                
+               
+                
+            
+              
+            
+
+        </div>
+        <div id="copyRight"><p>© 2025 Website. All rights reserved.</p></div>
+        <br>
+        
+    </div>
+    </footer>
+    <script>
+    // Function to get the start date of the current week 
+    function getCurrentWeekStartDate() {
+        const today = new Date();
+        const dayOfWeek = today.getDay(); // Get the current day of the week (0 = Sunday, 6 = Saturday)
+        
+        // Calculate the difference between today and the last Sunday
+        const difference = today.getDate() - dayOfWeek;
+        
+        // Set the date to the most recent Sunday
+        today.setDate(difference);
+        
+        // Format the date 
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return today.toLocaleDateString('en-US', options);
+    }
+    
+    // Display the current week's date above the schedule tables
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentWeekStartDate = getCurrentWeekStartDate(); // Get the current week start date
+        const dateElement = document.getElementById('current-week-date'); // Get the element where the date should be displayed
+        dateElement.textContent = `This week starts on: ${currentWeekStartDate}`;
+    });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

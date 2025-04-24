@@ -1,0 +1,467 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: /*#B4D6CD;*/#D1F2E9;
+    font-family: Arial,'Times New Roman', Times, serif;
+   
+}
+
+
+
+
+a{
+    text-decoration:none ;
+  
+}
+#navbar{
+   
+    padding-right: 0.9375em; /* 15px */
+    padding-left: 0.9375em; /* 15px */
+    border-bottom: 1px solid  #85aaa1;
+    border-top: 1px solid   #85aaa1;
+    background: /*#B4D6CD;*/#D1F2E9;
+    
+}
+
+
+
+#navdiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+ul {
+    padding: 0;
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+    margin-bottom: 0.3125em; /* 5px */
+
+}
+
+li a{
+    color: black;
+    margin-right: 1.5625em; /* 25px */
+}
+
+.Page:hover{
+    text-decoration:underline;
+    color: #FF4E88;
+}
+
+.breadcrumbs {
+    padding: 1em;
+    background-color: transparent;
+    font-size: 0.875em;
+    color: #6b7280;
+    margin-bottom: 1em;
+    white-space: nowrap;
+}
+
+.breadcrumbs a, .breadcrumbs span {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    color: #6b7280;
+    text-decoration: none;
+}
+
+.breadcrumbs a::after {
+    content: '>';  /*Adds the separator between breadcrumb items*/
+    color: #6b7280;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+}
+
+.breadcrumbs a:last-of-type::after {
+    content: '';
+}
+
+.breadcrumbs span {
+    color: #1f2937; 
+}
+
+#logoimage{
+    width: 100%;
+}
+
+#logo{
+    width: 15%;
+}
+
+
+.PageTitleContainer{
+    max-width: 100%;
+    height: auto;
+    padding: 5em  1.25em; /* 80px 20px */
+    background: #FF8C9E ;
+    margin-bottom: 6.25em; /* 100px */
+    
+   
+}
+.PageTitle{
+    background-color: rgba(255, 255, 255, 0.677);
+    width: 30% ;
+    padding: 1.25em; /* 20px */
+    text-align: center;
+    border-radius: 1.25em; /* 20px */
+     margin: auto;
+    
+}
+
+
+
+
+#footerContainer{
+    position:relative;
+    background-color: /*#B4D6CD;*/#D1F2E9;
+    border-bottom: 1px solid  #85aaa1;
+    border-top: 1px solid   #85aaa1;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 3.125em; /* 50px */
+
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    
+    
+
+    
+
+}
+#footer{
+
+    display: flex;
+    gap: 1.25em; /* 20px */
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    max-width: 100%;
+
+}
+
+
+.contactus{
+    display: flex;
+    gap: 1.25em; /* 20px */
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 100%;
+  
+}
+
+.ContactIcons{
+    width: 2.5em; /* 40px */
+    max-width: 100%;
+    height: auto;
+    
+     
+}
+
+#footer-section-logo{
+    max-width: 20%;
+}
+#footer-section-logo img{
+    max-width: 100%;
+}
+
+
+@media (max-width: 768px) {
+ 
+   #navdiv{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contactus,#footer{
+        flex-direction: column;
+    }
+
+    body{
+        font-size: 0.625em ;/*10px*/
+    }
+}
+
+.review-tooltip {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 1em;
+  border-radius: 0.75em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: none;
+  width: 300px;       /* fixed box size */
+  max-width: 90%;     /* safe for small screens */
+  z-index: 1000;
+  font-size: 0.9em;
+  line-height: 1.5;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+/* Centered on mobile */
+@media (max-width: 768px) {
+  .review-tooltip {
+    left: 50% !important;
+    transform: translateX(-50%);
+    width: 300px;
+    max-width: 90%;
+    font-size: 1em;
+  }
+}
+
+
+body.dark-mode {
+    background-color: #2f2f2f;
+    color: #f0e9dd;
+  }
+  
+  body.dark-mode .review-card,
+  body.dark-mode .activity-card,
+  body.dark-mode .review-tooltip {
+    background-color: #3b3b3b;
+    color: #f0e9dd;
+  }
+  
+  body.dark-mode .stars {
+    color: gold;
+  }
+  
+  body.dark-mode #footerContainer {
+    background-color: #1c1c1c;
+    color: #f0e9dd;
+  }
+  
+  body.dark-mode a {
+    color: #ddd;
+  }
+  
+  .toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .checkbox {
+    opacity: 0;
+    position: absolute;
+  }
+  
+  .label {
+    background-color: #ccc;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 50px;
+    transition: background-color 0.3s;
+  }
+  
+  .label::after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+  }
+  
+  .checkbox:checked + .label {
+    background-color: #444;
+  }
+  
+  .checkbox:checked + .label::after {
+    transform: translateX(26px);
+  }
+  
+  #theme-mode-text {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #333;
+  }
+
+  
+  /* ========== DARK MODE ========== */
+body.dark-mode {
+    background-color: #2f2f2f;
+    color: #f0f0f0;
+  }
+  
+  /* Header, Nav, Footer unified */
+  body.dark-mode nav,
+  body.dark-mode #navdiv,
+  body.dark-mode #footerContainer,
+  body.dark-mode #navbar {
+    background-color: #3a3a3a;
+    color: #f0f0f0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1em 2em;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+  }
+  
+  /* Footer bottom border fix */
+  body.dark-mode #footerContainer {
+    border-bottom: none;
+  }
+  
+  /* Logo wrapper */
+  #logo {
+    background: none;
+  }
+  
+  /* Vision Section */
+  body.dark-mode .vision {
+    background-color: #3a3a3a;
+  }
+  body.dark-mode .vision-title,
+  body.dark-mode .vision-text {
+    color: #f0f0f0;
+  }
+
+  body.dark-mode .PageTitleContainer {
+
+    max-width: 100%;
+    height: auto;
+    padding: 5em  1.25em; /* 80px 20px */
+    background: #984955 ;
+    margin-bottom: 6.25em; /* 100px */
+  }
+  
+  /* Cards: Review & Activity */
+  body.dark-mode .review-card,
+  body.dark-mode .activity-card,
+  body.dark-mode .coache {
+    background-color: #5a5a5a;
+    color: #f0f0f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Tooltip (hover review detail box) */
+  body.dark-mode .review-tooltip {
+    background-color: #e0e0e0;
+    color: #222;
+    border-radius: 12px;
+    padding: 1em;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+  }
+  
+  /* Text elements */
+  body.dark-mode h1,
+  body.dark-mode h2,
+  body.dark-mode h3,
+  body.dark-mode p {
+    color: #f0f0f0;
+  }
+  
+  /* Stars */
+  body.dark-mode .stars {
+    color: #ffd700;
+  }
+  
+  /* Links */
+  body.dark-mode a {
+    color: #f5f5f5;
+  }
+  
+  /* Dividers */
+  body.dark-mode hr {
+    border-color: #666;
+  }
+  
+  /* Toggle text color */
+  body.dark-mode #theme-mode-text {
+    color: #f0f0f0;
+  }
+  
+  /* Activity card top bars */
+  body.dark-mode #activity1::before,
+  body.dark-mode #activity4::before,
+  body.dark-mode #coache1::before, 
+  body.dark-mode #coache4::before, 
+  body.dark-mode #coache7::before  {
+    background-color: #963055; /* darker pink */
+  }
+  body.dark-mode #activity2::before,
+  body.dark-mode #activity5::before,
+  body.dark-mode #coache2::before, 
+  body.dark-mode #coache5::before, 
+  body.dark-mode #coache8::before,
+  body.dark-mode #schedule th,
+  body.dark-mode #schedule td#Khalid,
+  body.dark-mode #current-week-date
+    {
+    background-color: #a08736; /* darker yellow */
+  }
+  body.dark-mode #activity3::before,
+  body.dark-mode #activity6::before,
+  body.dark-mode #coache3::before, 
+  body.dark-mode #coache6::before,
+  body.dark-mode #schedule2 th,
+  body.dark-mode #schedule2 td#Sofia 
+  {
+    background-color: #984955; /* darker soft pink */
+  }
+
+  body.dark-mode section.explore-section {
+    display: flex;
+    align-items: center;
+    background-color: #70817c;
+    padding: 3.125em;
+    border-color:#70817c ;
+    border-width: 0.17em;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+}
+  
+  /* Transitions */
+  body,
+  nav,
+  .review-card,
+  .activity-card,
+  #footerContainer {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+/* Just dark mode visuals */
+body.dark-mode nav,
+body.dark-mode #navdiv,
+body.dark-mode #navbar {
+  background-color: #3a3a3a;
+  color: #f0f0f0;
+  border: none;
+}
+  
+
+.review-card img {
+    transition: transform 0.4s ease;
+    border-radius: 10px;
+  }
+  
+  .review-card:hover img {
+    transform: scale(1.05); /* zoom in slightly */
+  }
+  
+  body:not(.homepage) .homepage-only {
+    display: none;
+  }

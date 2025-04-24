@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities Page</title>
+    <link rel="stylesheet" href="Style.css">
+
+    <style>
+        /* Main Stylesheet for Activities Page */
+
+/* Global Styles */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+#ActivityPage {
+    font-weight: bold;
+}
+a.active {
+    font-weight: bold;
+}
+nav a:hover {
+    color: #111827;
+}
+
+/* Explore Section */
+.explore-section {
+    display: flex;
+    align-items: center;
+    background-color: #b7d5cd;
+    padding: 3.125em;
+    border-color:#85aaa1 ;
+    border-width: 0.17em;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+}
+.video-placeholder {
+    position: relative;
+    width: 50%;
+    height: 20em;
+    margin-right: 1.25em;
+    overflow: hidden;
+    border-radius: 0.625em;
+    z-index: 1;
+}
+
+.activity-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.625em;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.explore-section .image-placeholder {
+    background-color: #9CA3AF;
+    width: 50%;
+    height: 20em;
+    margin-right: 1.25em;
+}
+
+.explore-section h2 {
+    font-size: 1.75em;
+    font-weight: bold;
+    margin-bottom: 1.25em;
+}
+
+.explore-section p {
+    color: #000000;
+    margin-bottom: 1.25em;
+   
+}
+
+/*.explore-section button {
+    background-color: #FF4E88;
+    color: #ffffff;
+    font-size: 0.85em;
+    font-weight: bold;
+    padding: 1em 6em;
+    border-radius: 0.3125em;
+    border: none;
+    cursor: pointer;
+}
+
+.explore-section button:hover {
+    background-color: #ff89b0;
+}*/
+
+.button {
+    background-color: #FF4E88;
+    color: #ffffff;
+    padding: 0.7em 1.25em;
+    border: none;
+    border-radius: 0.3125em;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #ff89b0;
+}
+
+
+/* Activities Section */
+.activities-section {
+    padding: 3.125em;
+}
+
+.activities-section h2 {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1.875em;
+}
+
+
+.activity-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.5em; /* Space between cards */
+    justify-content: center; /* Center cards horizontally */
+    padding: 1.25em; /* Space between cards and edges of container */
+}
+/* Activity Card */
+.activity-card {
+    flex: 1 1 20em; /* Grow, shrink, and set minimum width */
+    max-width: 25em; /* Optional: limit the maximum width of cards */
+    box-sizing: border-box; /* Ensure padding and borders are included in width */
+    background-color: #8bbbad77;
+    padding: 1.25em;
+    border-radius: 0.625em;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+
+
+.image-placeholder {
+    background-color: #9CA3AF;
+    height: 13.75em;
+    margin-bottom: 1.25em;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.625em;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.activity-card:hover {
+    transform: scale(1.05);
+}
+
+.activity-card h3 {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 0.625em;
+}
+
+/* Activity Info Hover Effect */
+.activity-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(65, 64, 64, 0.7);
+    color: white;
+    padding: 0.7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    box-sizing: border-box; 
+    font-size: 0.7em;
+    text-align: left;
+}
+
+.time {
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.activity-card:hover .activity-info {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.activity-info p {
+    margin: 0.3125em 0;
+}
+
+.activity-info button {
+   
+    padding: 0.7em 0.8em;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.3125em;
+    margin-top: 0.9em;
+    font-size: 1em;
+}
+
+.activity-days {
+    display: flex;
+    gap: 0.625em;
+    margin-top: 0.625em;
+    align-self: center;
+}
+
+.day {
+    padding: 0.3125em 0.625em;
+    border-radius: 0.1875em;
+    background-color: transparent;
+    color: white;
+    border: 0.0625em solid white;
+}
+
+.day.grey {
+    background-color: #f2caed;
+    color: black;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+   /* header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        margin-top: 20px;
+    }*/
+
+    .activity-banner div {
+        font-size: 20px;
+    }
+
+    .explore-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .explore-section .image-placeholder {
+        width: 100%;
+        height: 200px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .activities-section {
+        padding: 20px;
+    }
+
+    .activity-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .activity-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .explore-section {
+        padding: 2em 1em;
+    }
+    .explore-section button {
+        padding: 0.5em 2em;
+    }
+    .activity-info {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        overflow-y: auto;
+
+    }
+
+    
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .activity-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+       gap: 2em; /* Adjust spacing between cards */
+        justify-content: center;
+    }
+    
+    
+
+
+}
+
+    
+
+   
+
+        </style>
+
+</head>
+
+<body>
+    
+    <!--navbar-->
+    <nav id="navbar">
+        <div id="navdiv"> 
+            <div id="logo">
+                <a href="index.html"><img src="images/logo.png" id="logoimage" alt="logo"></a>
+            </div>
+            <ul>
+                <li><a href="AdministratorDashboard.html" class="Page" accesskey="a" title="Alt + A (Admin Dashboard)">Administrator dashboard</a></li>
+                <li><a href="ParentDashboard.html" class="Page" accesskey="p" title="Alt + P (Parent Dashboard)">Parent dashboard</a></li>
+                <li><a href="Coaches.html" class="Page" id="coachesPage" accesskey="c" title="Alt + C (Coaches Page)">Coaches</a></li>
+                <li><a href="Activities.html" class="Page" accesskey="t" title="Alt + T (Activities Page)" id="ActivityPage">Activities</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- end navbar-->
+    <br>
+    <!--breadcrumbs-->
+    <p class="breadcrumbs"><a href="index.html">Home </a> 
+        <a href="Activities.html">Activities</a></p>
+     <!-- end breadcrumbs-->
+
+      <!--page title-->
+    <div class="PageTitleContainer"><div class="PageTitle"><h1>Activities</h1></div></div>
+       <!--end page title-->
+    <br>
+   
+    
+    <section class="explore-section">
+        <div class="video-placeholder">
+            <video autoplay muted loop playsinline class="activity-video">
+                <source src="images/Vid1.MP4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div>
+            <h2>Explore Our Activities</h2>
+            <p>Kiddo Heaven offers a vibrant mix of activities designed to inspire, engage, and empower children. From sports like swimming, gymnastics, 
+                and soccer to creative and skill-building experiences,<br> every activity is crafted to boost confidence and promote a healthy, active lifestyle. 
+                Join us and let your child explore, learn, and shine!</p>
+                <a href="#activities-section" class="button">Explore Activities</a>
+
+            
+        </div>
+    </section>
+
+    <section id="activities-section" class="activities-section">
+        <h2>Activities</h2>
+        
+    
+    <div class="activity-cards" id="activities-cards">
+    <!-- Activity 1 Card -->
+<div class="activity-card" >
+    <div class="image-placeholder">
+        <img src="images/Act1.JPG" alt="Swimming Image">
+    </div>
+    <h3>Swimming</h3>
+    <div class="activity-info">
+    <p> <strong>Description:</strong> Learn essential swimming techniques, improve stroke efficiency, and build water safety skills while boosting confidence.</p>
+    <p><strong>Prerequisites:</strong></p>
+        <p>- Skill Level: Intermediate</p>
+        <p>- Age: 13+</p>
+
+ <p><strong>Coach:</strong> Nian</p>
+<p><strong>Objectives:</strong></p>
+    <p>1-Improve stroke efficiency</p>
+    <p>2-Build water safety skills</p>
+        
+        <div class="activity-days">
+            <div class="day grey">Sun</div>
+            <div class="day">Mon</div>
+            <div class="day grey">Tue</div>
+            <div class="day">Wed</div>
+            <div class="day grey">Thu</div>
+            
+        </div>
+        <p class="time">4-6 PM</p>
+        <a href="ActivityEnrollment.html" class="button">Register</a>
+
+    </div>
+</div>
+
+<!-- Activity 2 Card -->
+<div class="activity-card">
+    <div class="image-placeholder">
+        <img src="images/Act2.JPG" alt="Horse Ridding Image">
+    </div>
+    <h3>Horse Riding</h3>
+    <div class="activity-info">
+        <p> <strong>Description:</strong> Develop balance, coordination, and riding techniques while learning how to care for and handle horses safely.</p>
+    <p><strong>Prerequisites:</strong></p>
+        <p>- Skill Level: Beginner</p>
+        <p>- Age: 10+</p>
+
+ <p><strong>Coach:</strong> Sofia</p>
+<p><strong>Objectives:</strong></p>
+    <p>1-Understand horse care and grooming basics.</p>
+    <p>2-Build confidence and control while riding.</p>
+        <div class="activity-days">
+            <div class="day grey">Sun</div>
+            <div class="day grey">Mon</div>
+            <div class="day grey">Tue</div>
+            <div class="day grey">Wed</div>
+            <div class="day grey">Thu</div>
+
+
+           
+        </div>
+        <p class="time">9:00-12:30 PM</p>
+
+        <a href="ActivityEnrollment.html" class="button">Register</a>
+    </div>
+</div>
+
+<!-- Activity 3 Card -->
+<div class="activity-card">
+    <div class="image-placeholder">
+        <img src="images/Act3.JPG" alt="Vollyball Image">
+    </div>
+    <h3>Volleyball</h3>
+    <div class="activity-info">
+        <p> <strong>Description:</strong> Improve serving, passing, setting, and spiking skills while learning teamwork and game strategies.</p>
+    <p><strong>Prerequisites:</strong></p>
+        <p>- Skill Level: Advanced</p>
+        <p>- Age: 15+</p>
+
+ <p><strong>Coach:</strong> Ahmed</p>
+<p><strong>Objectives:</strong></p>
+    <p>1-Learn advanced volleyball techniques and drills.</p>
+    <p>2-Enhance teamwork and strategic play on the court.</p>
+        <div class="activity-days">
+            <div class="day">Sun</div>
+            <div class="day">Mon</div>
+            <div class="day grey">Tue</div>
+            <div class="day grey">Wed</div>
+            <div class="day">Thu</div>
+            
+        </div>
+        <p class="time">9-11 AM</p>
+
+        <a href="ActivityEnrollment.html" class="button">Register</a>
+    </div>
+</div>
+
+<!-- Activity 4 Card -->
+<div class="activity-card">
+    <div class="image-placeholder">
+        <img src="images/Act4.JPG" alt="Ballet Image">
+    </div>
+    <h3>Ballet</h3>
+    <div class="activity-info">
+        <p> <strong>Description:</strong> Learn the fundamentals of ballet, including posture, coordination, and rhythm, in a fun and supportive environment. </p>
+    <p><strong>Prerequisites:</strong></p>
+        <p>- Skill Level: Beginner</p>
+        <p>- Age: 8+</p>
+
+ <p><strong>Coach:</strong> Sarah</p>
+<p><strong>Objectives:</strong></p>
+    <p>1-Develop basic ballet techniques and movements.</p>
+    <p>2-Improve balance, flexibility, and artistic expression.</p>
+        <div class="activity-days">
+            <div class="day grey">Sun</div>
+            <div class="day grey">Mon</div>
+            <div class="day">Tue</div>
+            <div class="day grey">Wed</div>
+            <div class="day grey">Thu</div>
+           
+        </div>
+        <p class="time">1-3 PM</p>
+        <a href="ActivityEnrollment.html" class="button">Register</a>
+    </div>
+</div>
+
+<!-- Activity 5 Card -->
+<div class="activity-card">
+    <div class="image-placeholder">
+        <img src="images/Act5.JPG" alt="Gymnastics Image">
+    </div>
+    <h3>Gymnastics</h3>
+    <div class="activity-info">
+        <p> <strong>Description:</strong> Build strength, flexibility, and balance through fundamental gymnastics techniques and safe practice routines.</p>
+        <p><strong>Prerequisites:</strong></p>
+            <p>- Skill Level: Intermediate</p>
+            <p>- Age: 8+</p>
+    
+     <p><strong>Coach:</strong> Natasha</p>
+    <p><strong>Objectives:</strong></p>
+        <p>1-Master basic gymnastics skills such as rolls, jumps, and balance.</p>
+        <p>2-Enhance physical strength and coordination. </p>
+
+        
+        <div class="activity-days">
+            <div class="day">Sun</div>
+            <div class="day grey">Mon</div>
+            <div class="day grey">Tue</div>
+            <div class="day">Wed</div>
+            <div class="day grey">Thu</div>
+            
+        </div>
+        <p class="time">11-2 PM</p>
+
+        <a href="ActivityEnrollment.html" class="button">Register</a>
+    </div>
+</div>
+
+<!-- Activity 6 Card -->
+<div class="activity-card">
+    <div class="image-placeholder">
+        <img src="images/Act6.JPG" alt="Karate Image">
+    </div>
+    <h3>Karate</h3>
+    <div class="activity-info">
+        <p> <strong>Description:</strong> Learn self-defense techniques, develop physical strength, and enhance focus and discipline through structured karate training.</p>
+        <p><strong>Prerequisites:</strong></p>
+            <p>- Skill Level: Advanced</p>
+            <p>- Age: 16+</p>
+    
+     <p><strong>Coach:</strong> Khalid</p>
+    <p><strong>Objectives:</strong></p>
+        <p>1-Practice karate forms, techniques, and self-discipline.</p>
+        <p>2-Build confidence and improve mental and physical strength. </p>
+        
+        <div class="activity-days">
+            <div class="day grey">Sun</div>
+            <div class="day grey">Mon</div>
+            <div class="day grey">Tue</div>
+            <div class="day grey">Wed</div>
+            <div class="day grey">Thu</div>
+            
+        </div>
+        <p class="time">1:30-4:00 PM</p>
+
+        <a href="ActivityEnrollment.html" class="button">Register</a>
+    </div>
+</div>
+
+<!-- Activity 7 Card -->
+<div class="activity-card">
+    <div class="image-placeholder">
+        <img src="images/Act7.JPG" alt="Tennis Image">
+    </div>
+    <h3>Tennis</h3>
+    <div class="activity-info">
+        <p> <strong>Description:</strong> Learn essential tennis skills including serving, forehand, and backhand strokes while improving hand-eye coordination.</p>
+        <p><strong>Prerequisites:</strong></p>
+            <p>- Skill Level: Beginner</p>
+            <p>- Age: 7+</p>
+    
+     <p><strong>Coach:</strong> David</p>
+    <p><strong>Objectives:</strong></p>
+        <p>1-Develop core tennis techniques and game understanding.</p>
+        <p>2-Enhance agility, coordination, and sportsmanship. </p>
+        <div class="activity-days">
+            <div class="day">Sun</div>
+            <div class="day grey">Mon</div>
+            <div class="day">Tue</div>
+            <div class="day grey">Wed</div>
+            <div class="day grey">Thu</div>
+            
+        </div>
+        <p class="time">3-5 PM</p>
+
+        <a href="ActivityEnrollment.html" class="button">Register</a>
+    </div>
+</div>
+
+<!-- Activity 8 Card -->
+<div class="activity-card">
+    <div class="image-placeholder">
+        <img src="images/Act8.JPG" alt="Football Image">
+    </div>
+    <h3>Football</h3>
+    <div class="activity-info">
+        <p> <strong>Description:</strong> Enhance football skills such as dribbling, passing, and shooting while learning teamwork and game tactics.</p>
+        <p><strong>Prerequisites:</strong></p>
+            <p>- Skill Level: Intermediate</p>
+            <p>- Age: 11+</p>
+    
+     <p><strong>Coach:</strong> Omar</p>
+    <p><strong>Objectives:</strong></p>
+        <p>1-Learn essential football techniques and strategies.</p>
+        <p>2-Improve fitness, teamwork, and tactical awareness. </p>
+        <div class="activity-days">
+            <div class="day grey">Sun</div>
+            <div class="day">Mon</div>
+            <div class="day grey">Tue</div>
+            <div class="day grey">Wed</div>
+            <div class="day">Thu</div>
+            
+        </div>
+        <p class="time">9-12 PM</p>
+        <a href="ActivityEnrollment.html" class="button">Register</a>
+    </div>
+</div>
+    </div>
+            
+        
+    
+</section>
+
+<footer>
+    <div id="footerContainer">
+    <div id="footer">
+        <div class="footer-section" id="footer-section-logo"><img src="images/logo.png" alt="logo" ></div>
+
+
+             <div class="footer-section">
+                
+                <h4 id="contactUs">Contact Us</h4>
+                <div class="contactus">
+                    
+
+                   <div>
+                     <img src="images/phone.png" alt="phone" id="phoneIcon" class="ContactIcons"> 
+                     <p id="phone">+966&nbsp;53667&nbsp;2891</p>
+                 </div>
+                  <div>
+                     <img src="images/mail.png" alt="mail" id="mailIcon" class="ContactIcons"> 
+                     <p id="mail">KiddoHeaven@gmail.com</p>
+                 </div>
+                
+                  <div>
+                     <img src="images/location.png" alt="location" id="locationIcon" class="ContactIcons">
+                      <p id="location">Riyadh, Saudi Arabia</p>
+                 </div>
+            
+                </div>
+                <br>
+               
+            </div>
+            
+
+            <div class="footer-section">
+                <h4 id="socialMedia" >Social Media</h4>
+                <div id="socialMediaIcons" ><a href="https://www.instagram.com/kidd.oheaven?igsh=dXhuenZjeWZwYnlu"><img src="images/instagram.png" alt="instagram" class="ContactIcons"></a> <a href="https://www.facebook.com/share/1AMUM8kzv4/?mibextid=wwXIfr" ><img src="images/facebook.png" alt="facebook" class="ContactIcons"> </a><a href="https://x.com/kiddo_heaven?s=21"><img src="images/x.png" alt="x" class="ContactIcons"></a></div>
+            </div>
+            
+           
+            
+        
+          
+        
+
+    </div>
+    <div id="copyRight"><p>© 2025 Website. All rights reserved.</p></div>
+    <br>
+    
+</div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

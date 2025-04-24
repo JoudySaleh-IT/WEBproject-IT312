@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Enrollment - Kiddo Heaven</title>
+    <link rel="stylesheet" href="Style.css">
+
+    
+    <style>
+        #ParentDashboard {
+            font-weight: bold;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 75em;
+            margin: 2em auto;
+            display: flex;
+            gap: 2em; /* Adds space between sidebar and main content */
+            padding-bottom: 2em;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 25%;
+            min-width: 250px; /* Ensures the sidebar doesn't get too small */
+            padding: 1em;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+
+        .sidebar .profile {
+            background-color: rgba(255, 255, 255, 0.677);
+            padding: 1.5em;
+            box-shadow: 0em 0.25em 0.375em rgba(0, 0, 0, 0.1);
+            border-radius: 0.375em;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 8em;
+            height: 8em;
+            background-color: #d1d5db;
+            border-radius: 50%;
+            margin: 0 auto 1em;
+            object-fit: cover;
+        }
+
+        .profile h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        button, a.button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 0;
+            border-radius: 0.375em;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            margin-bottom: 1em;
+        }
+
+        button.primary, a.button.primary {
+            background-color: #FF4E88;
+        }
+
+        button.secondary, a.button.secondary {
+            background-color: #FF8C9E;
+        }
+
+        button.primary {
+            width: 50%;
+            justify-self: center;
+        }
+
+        .main-content {
+            width: 75%;
+            
+        }
+        /* Top Section Styles */
+        .top-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap; /* Prevents wrapping */
+            width: 30em;
+        }
+
+        .top-section label {
+            font-weight: bold;
+            white-space: nowrap;
+            padding-right: 17.5em;
+        }
+
+        .top-section select {
+            padding: 0.5rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            flex: 1; /* Allows select to take up remaining space */
+            width: 20em;
+        }
+
+
+        /* Activity List */
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2em; 
+            margin: 1em 0; /* Adjusted margin for smaller screens */
+        }
+
+        .activity-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Increased gap */
+    padding: 1rem;
+    border: 0.1em solid #FF8C9E;
+    border-radius: 0.375rem;
+    background-color: rgba(255, 255, 255, 0.367);
+    width: 100%;
+    max-width: 40em;
+    box-sizing: border-box;
+    position: relative; /* For checkbox positioning */
+}
+
+.activity-card input[type="checkbox"] {
+    position: absolute;
+    left: 1rem; /* Position from left edge */
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: #FF4E88; /* Match your color scheme */
+}
+
+
+        .activity-image {
+            width: 4rem;
+            height: 4rem;
+            background-color: #d1d5db;
+            border-radius: 0.375rem;
+            border: 0.1em solid #FF8C9E;
+        }
+
+        
+        .activity-card .activity-image {
+    margin-left: 2.5rem; /* Make space for checkbox */
+    width: 4rem;
+    height: 4rem;
+    background-color: #d1d5db;
+    border-radius: 0.375rem;
+    border: 0.1em solid #FF8C9E;
+}
+
+.activity-card span {
+    flex-grow: 1; /* Allow text to take remaining space */
+    padding-left: 1rem; /* Space between image and text */
+}
+
+.activity-card label {
+    flex-grow: 1;
+    cursor: pointer;
+    font-weight: 500; /* Slightly bolder text */
+    margin-left: 0.5rem; /* Space between image and text */
+}
+
+.activity-card:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Slight hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .activity-card {
+        gap: 1rem;
+    }
+    
+    .activity-card input[type="checkbox"] {
+        left: 0.8rem;
+        width: 1rem;
+        height: 1rem;
+    }
+    
+    .activity-card .activity-image {
+        margin-left: 2rem;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+}
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 1em; /* Reduce gap for smaller screens */
+                padding: 1em; /* Adjusted padding for smaller screens */
+            }
+
+            .sidebar, .main-content {
+                width: 100%;
+            }
+
+            .top-section {
+                flex-direction: column; /* Stacks elements vertically on smaller screens */
+                align-items: flex-start;
+            }
+
+            .top-section select {
+                width: 100%; /* Ensures select takes full width */
+            }
+
+            .activity-card {
+                width: 100%; /* Ensures cards take full width */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div id="navdiv"> 
+            <div id="logo">
+                <a href="index.html"><img src="images/logo.png" id="logoimage" alt="logo"></a>
+            </div>
+            <ul>
+                <li><a href="AdministratorDashboard.html" class="Page" accesskey="a" title="Alt + A (Admin Dashboard)">Administrator dashboard</a></li>
+                <li><a href="ParentDashboard.html" class="Page" accesskey="p" title="Alt + P (Parent Dashboard)"><strong>Parent dashboard</strong></a></li>
+                <li><a href="Coaches.html" class="Page" id="coachesPage" accesskey="c" title="Alt + C (Coaches Page)">Coaches</a></li>
+                <li><a href="Activities.html" class="Page" accesskey="t" title="Alt + T (Activities Page)">Activities</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+        <a href="index.html">Home</a> 
+        <a href="ParentDashboard.html">Parent Dashboard</a> 
+        <a href="ActivityEnrollment.html">Activity Enrollment</a>
+    </nav>
+
+    <!-- Parent Dashboard Title -->
+    <div class="PageTitleContainer">
+        <div class="PageTitle">
+            <h1>Parent Dashboard</h1>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <img src="images/FatherImage.png" alt="Parent" class="profile-pic">
+                <h2>Nicholas Rich</h2>
+                <a href="ParentDashboard.html" class="button secondary">Registered Children</a>
+                <a href="ActivityEnrollment.html" class="button primary">Activity Enrollment</a>
+                <a href="ActivityRating.html" class="button secondary">Activity Rating</a>
+            </div>
+        </div>
+
+        <!-- Activity Enrollment Section -->
+        <div class="main-content">
+            <h2>Activity Enrollment</h2>
+            
+            <!-- Form for Activity Enrollment -->
+            <form id="activity-enrollment-form">
+                <!-- Dropdown for Selecting Child -->
+                <div class="top-section">
+                    <label for="child-select">Which child would you like to enroll?</label>
+                    <select id="child-select">
+                        <option value="" disabled selected hidden>Select a child</option>
+                        <option>Olivia Rich</option>
+                        <option>Josh Rich</option>
+                        <option>Daniel Rich</option>
+                    </select>
+                
+
+                <!-- Dropdown for Filtering Activities -->
+                
+                    <label for="filter-select">Filter by:</label>
+                    <select id="filter-select">
+                        <option value="">Select a Filter</option>
+                        <optgroup label="Caoch Name">
+                            <option value="Nina">Nina</option>
+                            <option value="Khalid">Khalid</option>
+                            <option value="Ahmed">Ahmed</option>
+                            <option value="Omar">Omar</option>
+                            <option value="Natasha">Natasha</option>
+                            <option value="Sofia">Sofia</option>
+                            <option value="David">David</option>
+                            <option value="Sarah">Sarah</option>
+                        </optgroup>
+                        <optgroup label="Objective">
+                            <option value="objective1">Objective 1</option>
+                            <option value="objective2">Objective 2</option>
+                            <option value="objective3">Objective 3</option>
+                        </optgroup>
+                        <optgroup label="Skill level">
+                            <option value="Advanced">Advanced</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Beginner">Beginner</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- Available Activities List (Radio Buttons for Single Selection) -->
+                <div class="activity-list">
+                    <div class="activity-card">
+                        <input type="checkbox" name="activity" value="Swimming" id="Swimming">
+                        <img src="images/Act1.JPG" alt="Swimming activity" class="activity-image">
+                        <label for="Swimming">Swimming</label>
+                    </div>
+                    <div class="activity-card">
+                        <input type="checkbox" name="activity" value="Horse Riding" id="HorseRiding">
+                        <img src="images/Act2.JPG" alt="HorseRiding activity" class="activity-image">
+                        <label for="HorseRiding">Horse Riding</label>
+                    </div>
+                    <div class="activity-card">
+                        <input type="checkbox" name="activity" value="Volleyball" id="Volleyball">
+                        <img src="images/Act3.JPG" alt="Volleyball activity" class="activity-image">
+                        <label for="Volleyball">Volleyball</label>
+                    </div>
+                    <div class="activity-card">
+                        <input type="checkbox" name="activity" value="Ballet" id="Ballet">
+                        <img src="images/Act4.JPG" alt="Ballet activity" class="activity-image">
+                        <label for="Ballet">Ballet</label>
+                    </div>
+                    <div class="activity-card">
+                        <input type="checkbox" name="activity" value="Gymnastics" id="Gymnastics">
+                        <img src="images/Act5.JPG" alt="Gymnastics activity" class="activity-image">
+                        <label for="Gymnastics">Gymnastics</label>
+                    </div>
+                    <div class="activity-card">
+                        <input type="checkbox" name="activity" value="Karate" id="Karate">
+                        <img src="images/Act6.JPG" alt="Karate activity" class="activity-image">
+                        <label for="Karate">Karate</label>
+                    </div>
+                    <div class="activity-card">
+                        <input type="checkbox" name="activity" value="Tennis" id="Tennis">
+                        <img src="images/Act7.JPG" alt="Tennis activity" class="activity-image">
+                        <label for="Tennis">Tennis</label>
+                    </div>
+                    <div class="activity-card">
+                        <input type="checkbox" name="activity" value="Football" id="Football">
+                        <img src="images/Act8.JPG" alt="Football activity" class="activity-image">
+                        <label for="Football">Football</label>
+                    </div>
+
+                    <!-- Confirm Button -->
+                    <button type="submit" class="button primary" style="width: 50%;">Confirm</button>
+
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div id="footerContainer">
+            <div id="footer">
+                <div class="footer-section" id="footer-section-logo"><img src="images/logo.png" alt="logo"></div>
+                <div class="footer-section">
+                    <h4 id="contactUs">Contact Us</h4>
+                    <div class="contactus">
+                        <div>
+                            <img src="images/phone.png" alt="phone" id="phoneIcon" class="ContactIcons"> 
+                            <p id="phone">+966 53667 2891</p>
+                        </div>
+                        <div>
+                            <img src="images/mail.png" alt="mail" id="mailIcon" class="ContactIcons"> 
+                            <p id="mail">KiddoHeaven@gmail.com</p>
+                        </div>
+                        <div>
+                            <img src="images/location.png" alt="location" id="locationIcon" class="ContactIcons">
+                            <p id="location">Riyadh, Saudi Arabia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 id="socialMedia">Social Media</h4>
+                    <div id="socialMediaIcons">
+                        <a href="https://www.instagram.com/kidd.oheaven?igsh=dXhuenZjeWZwYnlu"><img src="images/instagram.png" alt="instagram" class="ContactIcons"></a>
+                        <a href="https://www.facebook.com/share/1AMUM8kzv4/?mibextid=wwXIfr"><img src="images/facebook.png" alt="facebook" class="ContactIcons"></a>
+                        <a href="https://x.com/kiddo_heaven?s=21"><img src="images/x.png" alt="x" class="ContactIcons"></a>
+                    </div>
+                </div>
+            </div>
+            <div id="copyRight"><p>© 2025 Website. All rights reserved.</p></div>
+        </div>
+
+    </footer>
+    <script src="ActivityEnrollment 2.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Dashboard - Kiddo Heaven</title>
+    <style>
+
+
+/* Layout */
+.container {
+    max-width: 75em;
+    margin: 2em auto;
+    display: flex;
+    padding-bottom: 20em;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 25%;
+    padding: 1em;
+    height: 32em;
+    overflow-y: visible;
+}
+
+.sidebar .profile {
+    background-color: rgba(255, 255, 255, 0.677);
+    padding: 1.5em;
+    box-shadow: 0em 0.25em 0.375em rgba(0, 0, 0, 0.1);
+    border-radius: 0.375em;
+    text-align: center;
+    height: 100%;
+}
+
+.profile-pic {
+    width: 8em;
+    height: 8em;
+    background-color: #d1d5db;
+    border-radius: 50%;
+    margin: 0 auto 1em;
+    object-fit: cover;
+}
+
+.profile h2 {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-bottom: 1.5em;
+}
+
+button, a.button {
+    display: block;
+    width: 100%;
+    padding: 0.75em 0;
+    border-radius: 0.375em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+button.primary, a.button.primary {
+    background-color: #FF4E88;
+    
+}
+
+button.secondary, a.button.secondary {
+    background-color: #FF8C9E;
+}
+
+/* Main Content */
+.main-content {
+    width: 75%;
+    padding: 1em;
+}
+
+.main-content h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 1.5em;
+}
+
+
+.filter-section {
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: nowrap; /* Prevents wrapping */
+            width: 30em;
+        }
+
+        .filter-section label {
+            font-weight: bold;
+            margin-right: 0.5em;
+            
+        }
+
+        .filter-section select {
+            padding: 0.5rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            flex: 1; /* Allows select to take up remaining space */
+            width: 10em;
+            margin-bottom: 2em;
+
+        }
+
+/* Updated Child Card Design */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    flex-wrap: wrap;
+    margin-bottom: 3em;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.367);
+    text-align: center;
+    padding: 1em;
+    box-shadow: 0em 0.25em 0.375em rgba(0, 0, 0, 0.1);
+    border-radius: 0.375em;
+    border: 0.1em solid #FF8C9E;
+    width: 15em;
+}
+
+.card h3 {
+    font-size: 1.125em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+.card .child-image {
+    width: 8em;
+    height: 8em;
+    background-color: #d1d5db;
+    border-radius: 50%;
+    margin: 0 auto 1em;
+    object-fit: cover;
+}
+
+    </style>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div id="navdiv"> 
+            <div id="logo">
+                <a href="index.html"><img src="images/logo.png" id="logoimage" alt="logo"></a>
+            </div>
+            <ul>
+                <li><a href="AdministratorDashboard.html" class="Page" accesskey="a" title="Alt + A (Admin Dashboard)">Administrator dashboard</a></li>
+                <li><a href="ParentDashboard.html" class="Page" accesskey="p" title="Alt + P (Parent Dashboard)"><strong>Parent dashboard</strong></a></li>
+                <li><a href="Coaches.html" class="Page" id="coachesPage" accesskey="c" title="Alt + C (Coaches Page)">Coaches</a></li>
+                <li><a href="Activities.html" class="Page" accesskey="t" title="Alt + T (Activities Page)">Activities</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- end navbar-->
+    <br>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+        <a href="index.html">Home</a> 
+        <a href="ParentDashboard.html">Parent Dashboard</a> 
+        <a href="ParentDashboard.html">Registered Children</a>
+    </nav>
+
+    <!-- Parent Dashboard Title -->
+    <div class="PageTitleContainer">
+        <div class="PageTitle">
+        <h1>Parent Dashboard</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <img src="images/FatherImage.png" alt="Parent" class="profile-pic">
+                <h2>Nicholas Rich</h2>
+                <a href="ParentDashboard.html" class="button primary">Registered Children</a>
+                <a href="ActivityEnrollment.html" class="button secondary">Activity Enrollment</a>
+                <a href="ActivityRating.html" class="button secondary">Activity Rating</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h2>My Children</h2>
+        <div class="filter-section">
+            <label for="filter-select">Filter by:</label>
+                    <select id="filter-select">
+                        <option value="">Select a Filter</option>
+                        <optgroup label="Child Name">
+                            <option value="A-Z">From A-Z</option>
+                            <option value="Z-A">From Z-A</option>
+                        </optgroup>
+                        <optgroup label="Age">
+                            <option value="Oldest-first">Oldest to Youngest</option>
+                            <option value="Youngest-first">Youngest to Oldest</option>
+                        </optgroup>
+                    </select>
+        </div>
+
+            <div class="cards-container">
+                <!-- Child Card 1 -->
+                <div class="card">
+                    <img src="images/kid12.png" alt="Child" class="child-image">
+                    <h3>Olivia Rich</h3>
+                    <hr>
+                    <p>Age: 12</p>
+                    <p>Height: 152 cm</p>
+                    <p>Gender: F</p>
+                    <button class="primary">See Details</button>
+                </div>
+
+                <!-- Child Card 2 -->
+                <div class="card">
+                    <img src="images/kid9.png" alt="Child" class="child-image">
+                    <h3>Josh Rich</h3>
+                    <hr>
+                    <p>Age: 9</p>
+                    <p>Height: 138 cm</p>
+                    <p>Gender: M</p>
+                    <button class="primary">See Details</button>
+                </div>
+
+                <!-- Child Card 3 -->
+                <div class="card">
+                    <img src="images/kid3.png" alt="Child" class="child-image">
+                    <h3>Daniel Rich</h3>
+                    <hr>
+                    <p>Age: 15</p>
+                    <p>Height: 156 cm</p>
+                    <p>Gender: M</p>
+                    <button class="primary">See Details</button>
+                </div>
+            </div>
+
+            <!-- Add a New Child Button 
+            <a href="ChildRegister.html" class="button primary">
+                + Add a New Child
+            </a> -->
+        </div>
+    </div>
+
+    <footer>
+        <div id="footerContainer">
+        <div id="footer">
+            <div class="footer-section" id="footer-section-logo"><img src="images/logo.png" alt="logo" ></div>
+
+
+                 <div class="footer-section">
+                    
+                    <h4 id="contactUs">Contact Us</h4>
+                    <div class="contactus">
+                        
+
+                       <div>
+                         <img src="images/phone.png" alt="phone" id="phoneIcon" class="ContactIcons"> 
+                         <p id="phone">+966&nbsp;53667&nbsp;2891</p>
+                     </div>
+                      <div>
+                         <img src="images/mail.png" alt="mail" id="mailIcon" class="ContactIcons"> 
+                         <p id="mail">KiddoHeaven@gmail.com</p>
+                     </div>
+                    
+                      <div>
+                         <img src="images/location.png" alt="location" id="locationIcon" class="ContactIcons">
+                          <p id="location">Riyadh, Saudi Arabia</p>
+                     </div>
+                
+                    </div>
+                    <br>
+                   
+                </div>
+                
+
+                <div class="footer-section">
+                    <h4 id="socialMedia" >Social Media</h4>
+                    <div id="socialMediaIcons" ><a href="https://www.instagram.com/kidd.oheaven?igsh=dXhuenZjeWZwYnlu"><img src="images/instagram.png" alt="instagram" class="ContactIcons"></a> <a href="https://www.facebook.com/share/1AMUM8kzv4/?mibextid=wwXIfr" ><img src="images/facebook.png" alt="facebook" class="ContactIcons"> </a><a href="https://x.com/kiddo_heaven?s=21"><img src="images/x.png" alt="x" class="ContactIcons"></a></div>
+                </div>
+                
+               
+                
+            
+              
+            
+
+        </div>
+        <div id="copyRight"><p>© 2025 Website. All rights reserved.</p></div>
+        <br>
+        
+    </div>
+    </footer>
+    <script src="ParentDashboard.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Registration - Kiddo Heaven</title>
+    <style>
+        #ParentDashboard {
+    font-weight: bold;
+        }
+    
+        /* Layout */
+        .container {
+            max-width: 75em;
+            margin: 2em auto;
+            display: flex;
+            gap: 2em; /* Adds space between sidebar and main content */
+            padding-bottom: 2em;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 25%;
+            min-width: 250px; /* Ensures the sidebar doesn't get too small */
+            padding: 1em;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+
+        .sidebar .profile {
+            background-color: white;
+            padding: 1.5em;
+            box-shadow: 0em 0.25em 0.375em rgba(0, 0, 0, 0.1);
+            border-radius: 0.375em;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 8em;
+            height: 8em;
+            background-color: #d1d5db;
+            border-radius: 50%;
+            margin: 0 auto 1em;
+            object-fit: cover;
+        }
+
+        .profile h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        button, a.button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 0;
+            border-radius: 0.375em;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            margin-bottom: 1em;
+        }
+
+        button.primary, a.button.primary {
+            background-color: #FF4E88;
+        }
+
+        button.secondary, a.button.secondary {
+            background-color: #FF8C9E;
+        }
+
+        /* Main Content */
+        .main-content {
+            width: 75%;
+            padding: 1rem;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+
+        .main-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Form Layout */
+        .form-container {
+            display: flex;
+            gap: 2rem;
+            
+        }
+
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.696);
+            text-align: center;
+            padding: 1em;
+            box-shadow: 0em 0.25em 0.375em rgba(0, 0, 0, 0.1);
+            border: 0.1em solid #FF8C9E;
+            border-radius: 0.375rem;
+            width: 50%; /* Adjusted for responsiveness */
+            height: 21.7em;
+            
+        }
+
+        .image-placeholder {
+            width: 100%; /* Adjusted for responsiveness */
+            max-width: 16rem; /* Limits width on larger screens */
+            height: 16rem;
+            background-color: #d1d5db9f;
+            object-fit: cover;
+            margin-bottom: 1em;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        #childPhotoPreview {
+            display: none;
+            object-fit: cover;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%; /* Adjusted for responsiveness */
+            max-width: 30em; /* Limits width on larger screens */
+            
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5em; /* Add gap between columns in row */
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.6rem; /* Increased from 0.6rem */
+                }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="date"],
+        .form-group input[type="email"] {
+            width: 100%;
+            padding: 0.6rem;
+            border: 0.1em solid #FF8C9E;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            box-sizing: border-box; /* Ensures padding is included in width */
+            margin-bottom: 0.4em;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 2em; /* Increased spacing between radio options */
+            padding: 0.6em; /* Increased vertical padding */
+            margin-bottom: 0.4em;
+
+        }
+
+        .add-child {
+            margin-top: 2em;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 1em; /* Reduce gap for smaller screens */
+                padding: 1em; /* Adjusted padding for smaller screens */
+            }
+
+            .sidebar, .main-content {
+                width: 100%;
+            }
+
+            .form-container {
+        flex-direction: column;
+        gap: 2em; /* Add space between image and form sections */
+    }
+    
+    .image-section {
+        width: 100%;
+        height: auto; /* Remove fixed height */
+        margin-bottom: 2em; /* Add space below image section */
+    }
+    
+    form {
+        width: 100%;
+        max-width: 100%; /* Allow form to take full width */
+    }
+    
+    .form-row {
+        flex-direction: column; /* Stack form fields vertically */
+        gap: 1em; /* Reduce gap between stacked fields */
+    }
+        }
+    </style>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div id="navdiv"> 
+            <div id="logo">
+                <a href="index.html"><img src="images/logo.png" id="logoimage" alt="logo"></a>
+            </div>
+            <ul>
+                <li><a href="AdministratorDashboard.html" class="Page" accesskey="a" title="Alt + A (Admin Dashboard)">Administrator dashboard</a></li>
+                <li><a href="ParentDashboard.html" class="Page" accesskey="p" title="Alt + P (Parent Dashboard)"><strong>Parent dashboard</strong></a></li>
+                <li><a href="Coaches.html" class="Page" id="coachesPage" accesskey="c" title="Alt + C (Coaches Page)">Coaches</a></li>
+                <li><a href="Activities.html" class="Page" accesskey="t" title="Alt + T (Activities Page)">Activities</a></li>
+            </ul>
+        </div>
+    </nav>  
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+        <a href="index.html">Home</a> 
+        <a href="ParentDashboard.html">Parent Dashboard</a> 
+        <a href="ParentDashboard.html">Registered Children</a> 
+        <a href="ChildRegister.html">Add a new Child</a>
+    </nav>
+
+    <!-- Parent Dashboard Title -->
+    <div class="PageTitleContainer">
+        <div class="PageTitle">
+            <h1>Parent Dashboard</h1>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <img src="images/FatherImage.png" alt="Parent" class="profile-pic">
+                <h2>Nicholas Rich</h2>
+                <a href="ParentDashboard.html" class="button primary">Registered Children</a>
+                <a href="ActivityEnrollment.html" class="button secondary">Activity Enrollment</a>
+                <a href="ActivityRating.html" class="button secondary">Activity Rating</a>
+            </div>
+        </div>
+
+        <!-- Child Registration Form -->
+        <div class="main-content">
+            <h2>Child Registration</h2>
+            <div class="form-container">
+                <!-- Image Section -->
+                <div class="image-section">
+                    <div class="image-placeholder">
+                        <img id="childPhotoPreview" style="display: none; width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        <label>Upload Child Image:<br>
+                            <input type="file" id="childPhotoUpload" name="ChildPhoto" accept="image/*"></label>
+                        </form>
+                </div>
+
+                <!-- Form Fields -->
+                <!-- Update the form opening tag -->
+<form id="childRegistrationForm">
+    <!-- Update the input fields with IDs and required attributes -->
+    <div class="form-row">
+        <!-- First Name -->
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Enter First Name" required>
+        </div>
+
+        <!-- Last Name -->
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name" required>
+        </div>
+    </div>
+
+    <!-- Gender -->
+    <div class="form-group">
+        <label>Gender</label>
+        <div class="radio-group">
+            <label><input type="radio" name="gender" value="F" required> Female</label>
+            <label><input type="radio" name="gender" value="M"> Male</label>
+        </div>
+        <label for="dob">Date Of Birth (DOB)</label>
+        <input type="date" id="dob" name="dob" required>
+        
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" min="5" required>
+    </div>
+
+    <!-- Additional Fields -->
+    <div class="form-row">
+        <!-- Weight -->
+        <div class="form-group">
+            <label for="weight">Weight (KG)</label>
+            <input type="number" id="weight" name="weight" placeholder="Enter Weight" min="0" step="0.1" required>
+        </div>
+
+        <!-- Height -->
+        <div class="form-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" name="height" placeholder="Enter Height" min="0" required>
+        </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="form-group">
+        <label for="email">Contact Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+    </div>
+    
+    <!-- Update the submit button -->
+    <div class="add-child">
+        <button type="submit" class="button primary">+ Add Child</button>
+    </div>
+</form>
+
+
+            </div>
+
+            <!-- Add Child Button
+            <div class="add-child">
+                <a href="ParentDashboard.html" class="button primary">+ Add Child</a>
+            </div>-->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div id="footerContainer">
+            <div id="footer">
+                <div class="footer-section" id="footer-section-logo"><img src="images/logo.png" alt="logo"></div>
+                <div class="footer-section">
+                    <h4 id="contactUs">Contact Us</h4>
+                    <div class="contactus">
+                        <div>
+                            <img src="images/phone.png" alt="phone" id="phoneIcon" class="ContactIcons"> 
+                            <p id="phone">+966 53667 2891</p>
+                        </div>
+                        <div>
+                            <img src="images/mail.png" alt="mail" id="mailIcon" class="ContactIcons"> 
+                            <p id="mail">KiddoHeaven@gmail.com</p>
+                        </div>
+                        <div>
+                            <img src="images/location.png" alt="location" id="locationIcon" class="ContactIcons">
+                            <p id="location">Riyadh, Saudi Arabia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 id="socialMedia">Social Media</h4>
+                    <div id="socialMediaIcons">
+                        <a href="https://www.instagram.com/kidd.oheaven?igsh=dXhuenZjeWZwYnlu"><img src="images/instagram.png" alt="instagram" class="ContactIcons"></a>
+                        <a href="https://www.facebook.com/share/1AMUM8kzv4/?mibextid=wwXIfr"><img src="images/facebook.png" alt="facebook" class="ContactIcons"></a>
+                        <a href="https://x.com/kiddo_heaven?s=21"><img src="images/x.png" alt="x" class="ContactIcons"></a>
+                    </div>
+                </div>
+            </div>
+            <div id="copyRight"><p>© 2025 Website. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="ChildRegister.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>KiddoHeaven</title>
+    <style>
+        
+	
+	/* General Style */
+body, html {
+    width: 100%;
+	 overflow-x: hidden; /* Prevent horizontal scroll */
+} 
+h3 {
+    text-align: center;
+    margin-top: 1.25em;
+    font-weight: normal;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 1.25em;
+}
+
+
+     .vision {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF8C9E;
+    box-sizing: border-box;
+	
+}
+
+.vision-content {
+    display: flex;
+	flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+	margin-top:  0.3125em; /* 5px */
+	margin-bottom: 0.3125em;
+}
+
+.vision-text-container {
+    max-width: 45%;
+    text-align: left;
+	padding:1.25em;
+}
+
+.vision-title {
+    font-size: 3rem;
+	 margin-left: 1.25em; /* Adds a uniform indent to all lines 20px */
+    padding-left: 1.25em; /* Adds consistent padding for all lines */
+    margin-bottom: 0.625em; /* 1px */
+    margin-left: 0; /* Ensure it is flush to the left */
+}
+
+.vision-text {
+    font-size: 1.25rem;
+	/* font-weight: bold; */
+    line-height: 1.8;
+    margin-top: 0;
+    margin-left: 1.25em; /* Adds a uniform indent to all lines 20px */
+    padding-left: 1.25em; /* Adds consistent padding for all lines */
+    text-align: justify;
+}
+
+
+.vision-image {
+max-width:45%;
+height:auto;
+padding:1.25em;
+border-radius: 1.875em; 
+ align-self: flex-end;
+}
+
+
+
+
+
+    .activities {
+    display: grid;
+   grid-template-columns: repeat(3, minmax(200px, 1fr)); /* Three columns on large screens */
+    gap: 1.25em; /* 20px  */
+    padding: 1.25em; /* 20px  */
+    justify-items: center;
+}
+
+
+
+/* Activity Card Styles */
+.activity-card {
+    background-color: rgba(255, 255, 255, 0.677); /* Semi-transparent white */
+    border-radius: 1.25em; /* Rounded borders */
+    padding: 1.25em;
+    text-align: center;
+	max-width: 50%;
+    min-width: 0; /* Prevents shrinking issues */
+    height: auto; 
+    position: relative; /* For positioning the pseudo-element */
+    margin: 0.3125em; /* Spacing */
+    overflow: hidden; /* Hide overflow */
+}
+
+/* Use ::before for Colored Top Bars */
+.activity-card::before {
+    content: '';
+    height: 1.25em;
+    width: 100%;
+    position: absolute;
+    border-top-left-radius: 1.25em;
+    border-top-right-radius: 1.25em;
+    top: 0;
+    left: 0;
+}
+
+/* Assign Colors Using Specific IDs */
+#activity1::before , #activity4::before {
+    background-color: #FF4E88; /* Pink */
+}
+
+#activity2::before , #activity5::before {
+    background-color: #FFDA76; /* Yellow */
+}
+
+#activity3::before , #activity6::before  {
+    background-color: #FF8C9E; /* Light Pink */
+}
+
+
+/* Image and Description Styles */
+.activity-card img {
+ border-radius: 1.875em; /* Rounded borders */
+    max-width: 100%; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 1.5625em; /* Space from top of card */
+}
+
+.activity-card p {
+    text-align: center;
+    margin-top: 2.5em;
+}
+
+.description {
+    line-height: 1.4;
+    margin-top:0.3125em;
+    text-align: justify;
+}
+
+/* Container for Horizontal Scrolling */
+.Scroll {
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 1.5em; /* Maintain spacing between cards */
+    padding: 1em;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #FF8C9E #FFF;
+}
+
+/* Review Card Styles (Set to Desired Size) */
+.review-card {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    max-width: 20em; /* 320px - Set width to match image */
+    min-width: 15em; 
+    height: auto; /* 288px - Set height to match image */
+    position: relative;
+    border-radius: 1.25em; /* 20px */
+    text-align: center;
+	padding:10px;
+
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    word-wrap: break-word;
+}
+
+
+
+
+/* Image and Text Styles */
+.review-card img {
+    width: 90%;
+    height: 60%;
+    object-fit: cover;
+	border-radius: 1.875em; 
+}
+
+.review-card p {
+    padding: 0.75em;
+    white-space: normal; /* Allow text to wrap properly */
+}
+
+/* Custom Scrollbar */
+.Scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.Scroll::-webkit-scrollbar-thumb {
+    background-color: #FF8C9E;
+    border-radius: 0.3125em;
+}
+
+.Scroll::-webkit-scrollbar-track {
+    background: #FFF;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+.vision {
+        flex-direction: column; /* Stack elements on small screens */
+        text-align: center;
+        padding: 2rem 5%;
+    }
+
+
+
+
+    .vision-content {
+        flex-direction: column;
+      
+    }
+    
+    .vision-text-container {
+        max-width: 100%;
+        text-align: center;
+		padding:0.625em;
+    }
+
+    .vision-image {
+        max-width: 100%;
+    }
+	
+	}
+	
+/* Media Query for Small Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    
+
+    /* Vision Section */
+    .vision-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+    }
+
+    .vision-text-container {
+        max-width: 100%;
+        padding: 1em;
+        text-align: center;
+		  padding: 0.625em;
+        font-size: 0.8rem; /* Smaller font size for space efficiency */
+    }
+.vision-content {
+        flex-direction: column; /* Stack image and text vertically */
+    }
+
+    .vision-title {
+        font-size: 1.5rem; /* Smaller title for smaller screens */
+    }
+
+    .vision-text {
+        font-size: 0.9rem; /* Smaller text size for readability */
+    }
+   
+
+    .vision-image {
+	height:auto;
+        max-width: 100%;
+        margin-top: 0.625em;
+    }
+    .activities {
+        grid-template-columns: 1fr; /* Ensure one column layout */
+        padding: 0.5em;
+    }
+
+    .activity-card {
+        max-width: 100%; /* Allow cards to use full width */
+        min-width: auto;
+        margin: 0.5em 0;
+    }
+
+    .activity-card img {
+        max-width: 80%; /* Avoid oversized images */
+        height: auto;
+    }
+
+    .description {
+        font-size: 1rem;
+        padding: 0.5em;
+        text-align: center;
+    }
+
+    /* Reviews Section */
+    .Scroll {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden;
+    }
+
+    .review-card {
+        max-width: 100%;
+        min-width: auto;
+        margin: 0.5em 0;
+    }
+
+   
+
+
+}
+
+    </style>
+   
+</head>
+
+<body class="homepage">
+  <!--navbar-->
+<nav id="navbar">
+    <div id="navdiv"> 
+        <div id="logo">
+            <a href="index.html"><img src="images/logo.png" id="logoimage" alt="logo"></a>
+        </div>
+        <ul>
+            <li><a href="AdministratorDashboard.html" class="Page" accesskey="a" title="Alt + A (Admin Dashboard)">Administrator dashboard</a></li>
+            <li><a href="ParentDashboard.html" class="Page" accesskey="p" title="Alt + P (Parent Dashboard)">Parent dashboard</a></li>
+            <li><a href="Coaches.html" class="Page" id="coachesPage" accesskey="c" title="Alt + C (Coaches Page)">Coaches</a></li>
+            <li><a href="Activities.html" class="Page" accesskey="t" title="Alt + T (Activities Page)">Activities</a></li>
+            <li>
+                <div class="toggle-container homepage-only">
+                    <input type="checkbox" class="checkbox" id="theme-toggle">
+                    <label for="theme-toggle" class="label"></label>
+                    <span id="theme-mode-text">Light</span>
+                  </div>
+                  
+              </li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- end navbar-->
+
+    
+    <h3>
+        Step Into <strong>Kiddo Heaven</strong> - Where Every Day Feels Like an Adventure!
+    </h3>
+
+    <!-- start of home page -->
+   <section class="vision">
+    <div class="vision-content">
+        <div class="vision-text-container">
+            <h1 class="vision-title">At Kiddo Heaven</h1>
+            <p class="vision-text">
+                We believe every child deserves a place where imagination runs wild, and adventures await at every corner. Our vision is to create a vibrant and nurturing space where kids can explore, learn, and thrive through fun and engaging activities. With a focus on safety, creativity, and community, we aim to inspire a lifelong love for learning and play. Step into a world where every day feels like an adventure, and every child is a superstar!
+            </p>
+        </div>
+        <img src="images/vision.jpg" alt="Vision Image" class="vision-image">
+    </div>
+</section>
+
+
+
+    <h3>Unleash the Fun: Discover Exciting Adventures at <strong> Kiddo Heaven!</strong></h3>
+<div class="activities">
+    <div class="activity-card" id="activity1">
+        <img src="images/Act1.JPG" alt="Swimming">
+        <p>Swimming</p>
+        <div class="stars">★★★★★</div>
+        <p class="description">Boosts water safety, builds endurance, and strengthens muscles through fun aquatic exercises.</p>
+    </div>
+
+    <div class="activity-card" id="activity2">
+        <img src="images/Act2.JPG" alt="Horse Riding">
+        <p>Horse Riding</p>
+        <div class="stars">★★★★★</div>
+        <p class="description">Enhances balance, confidence, and a special bond with horses in a safe environment.</p>
+    </div>
+
+    <div class="activity-card" id="activity3">
+        <img src="images/Act3.JPG" alt="Volleyball">
+        <p>Volleyball</p>
+        <div class="stars">★★★★★</div>
+        <p class="description">Develops teamwork, agility, and coordination through engaging matches and drills.</p>
+    </div>
+
+    <div class="activity-card" id="activity4">
+        <img src="images/Act4.JPG" alt="Ballet">
+        <p>Ballet</p>
+        <div class="stars">★★★★★</div>
+        <p class="description">Improves flexibility, strength, and grace with structured dance routines.</p>
+    </div>
+
+    <div class="activity-card" id="activity5">
+        <img src="images/Act5.JPG" alt="Gymnastics">
+        <p>Gymnastics</p>
+        <div class="stars">★★★★★</div>
+        <p class="description">Builds strength, balance, and flexibility through fun physical activities.</p>
+    </div>
+
+    <div class="activity-card" id="activity6">
+        <img src="images/Act6.JPG" alt="Karate">
+        <p>Karate</p>
+        <div class="stars">★★★☆☆</div>
+        <p class="description">Teaches discipline, focus, and self-defense skills in a supportive setting.</p>
+    </div>
+</div>
+
+	
+	<br>
+	<hr>
+
+
+<h2>Why Families Love Kiddo Heaven</h2> 
+
+<!-- Reviews in a Scrollable Section -->
+<div class="Scroll">
+    <div class="review-card" id="review1"
+    data-customer="Olivia"
+    data-rate="★★★★★"
+    data-feedback="The team spirit and skilled coaching at Kiddo Heaven make each soccer session exciting. My children look forward to every match!">
+   <img src="images/parentReview1.jpg" alt="Review 1">
+   <p><b>Olivia:</b> "The team spirit and skilled coaching at Kiddo Heaven make each soccer session exciting. My children look forward to every match!"</p>
+</div>
+
+
+<div class="review-card" id="review2"
+data-customer="Lauren"
+data-rate="★★★★★"
+data-feedback="Swimming at Kiddo Heaven has not only improved my child's skills but also his confidence in the water. The instructors are top-notch!">
+<img src="images/parentReview2.jpg" alt="Review 2">
+<p><b>Lauren:</b> "Swimming at Kiddo Heaven has not only improved my child's skills but also his confidence in the water. The instructors are top-notch!"</p>
+</div>
+
+<div class="review-card" id="review3"
+data-customer="Sarah"
+data-rate="★★★★☆"
+data-feedback="The disciplined environment has taught my child so much more than just martial arts. Absolutely recommend!">
+<img src="images/parentReview3.jpg" alt="Review 3">
+<p><b>Sarah:</b>"The disciplined environment has taught my child so much more than just martial arts. Absolutely recommend!"</p>
+</div>
+
+<div class="review-card" id="review4"
+data-customer="Emily"
+data-rate="★★★★★"
+data-feedback="The dance instructors are fantastic! My daughter has gained confidence and grace. A delightful experience!">
+<img src="images/parentReview4.jpg" alt="Review 4">
+<p><b>Emily:</b> "The dance instructors are fantastic! My daughter has gained confidence and grace. A delightful experience!"</p>
+</div>
+
+<div class="review-card" id="review5"
+data-customer="Michael"
+data-rate="★★★★★"
+data-feedback="The coaches are exceptional and truly care about developing each child’s abilities. A great place for young athletes!">
+<img src="images/parentReview5.jpg" alt="Review 5">
+<p><b>Michael:</b> "The coaches are exceptional and truly care about developing each child’s abilities. A great place for young athletes!"</p>
+</div>
+
+<div class="review-card" id="review6"
+data-customer="Sofia"
+data-rate="★★★★★"
+data-feedback="Riding lessons have been a game-changer for my son's focus and responsibility. Plus, he absolutely loves the horses!">
+<img src="images/parentReview6.jpg" alt="Review 6">
+<p><b>Sofia:</b>"Riding lessons have been a game-changer for my son's focus and responsibility. Plus, he absolutely loves the horses!"</p>
+</div>
+
+<div class="review-card" id="review7"
+data-customer="David"
+data-rate="★★★★★"
+data-feedback="A fantastic team sport offering! My son has improved his skills and made so many friends. Highly recommend Kiddo Heaven's soccer program!">
+<img src="images/parentReview7.jpg" alt="Review 7">
+<p><b>David:</b> "A fantastic team sport offering! My son has improved his skills and made so many friends. Highly recommend Kiddo Heaven's soccer program!"</p>
+</div>
+
+</div>
+  <!-- Tooltip container for displaying additional details on hover -->
+  <div id="tooltip" class="review-tooltip"></div>
+ 
+
+
+
+ <br>
+
+    <footer>
+        <div id="footerContainer">
+        <div id="footer">
+            <div class="footer-section" id="footer-section-logo"><img src="images/logo.png" alt="logo" ></div>
+
+
+                 <div class="footer-section">
+                    
+                    <h4 id="contactUs">Contact Us</h4>
+                    <div class="contactus">
+                        
+
+                       <div>
+                         <img src="images/phone.png" alt="phone" id="phoneIcon" class="ContactIcons"> 
+                         <p id="phone">+966&nbsp;53667&nbsp;2891</p>
+                     </div>
+                      <div>
+                         <img src="images/mail.png" alt="mail" id="mailIcon" class="ContactIcons"> 
+                         <p id="mail">KiddoHeaven@gmail.com</p>
+                     </div>
+                    
+                      <div>
+                         <img src="images/location.png" alt="location" id="locationIcon" class="ContactIcons">
+                          <p id="location">Riyadh, Saudi Arabia</p>
+                     </div>
+                
+                    </div>
+                    <br>
+                   
+                </div>
+                
+
+                <div class="footer-section">
+                    <h4 id="socialMedia" >Social Media</h4>
+                    <div id="socialMediaIcons" ><a href="https://www.instagram.com/kidd.oheaven?igsh=dXhuenZjeWZwYnlu"><img src="images/instagram.png" alt="instagram" class="ContactIcons"></a> <a href="https://www.facebook.com/share/1AMUM8kzv4/?mibextid=wwXIfr" ><img src="images/facebook.png" alt="facebook" class="ContactIcons"> </a><a href="https://x.com/kiddo_heaven?s=21"><img src="images/x.png" alt="x" class="ContactIcons"></a></div>
+                </div>
+                
+               
+                
+            
+              
+            
+
+        </div>
+        <div id="copyRight"><p>© 2025 Website. All rights reserved.</p></div>
+        <br>
+        
+    </div>
+    </footer>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

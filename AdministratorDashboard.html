@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Dashboard - Kiddo Heaven</title>
+    <link rel="stylesheet" href="Style.css">
+    <style>
+
+        /* Breadcrumbs Styles*/
+.breadcrumbs {
+    padding: 1em;
+    background-color: transparent;
+    font-size: 0.875em;
+    color: #6b7280;
+    margin-bottom: 1em;
+    white-space: nowrap;
+}
+
+.breadcrumbs a, .breadcrumbs span {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    color: #6b7280;
+    text-decoration: none;
+}
+
+.breadcrumbs a::after {
+    content: '>';  /*Adds the separator between breadcrumb items*/
+    color: #6b7280;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+}
+
+.breadcrumbs a:last-of-type::after {
+    content: '';
+}
+
+.breadcrumbs span {
+    color: #1f2937; 
+}
+
+/* Main Container Styles */
+.container {
+max-width: 75em;
+margin: 2em auto;
+display: flex;
+padding-bottom: 20em;
+}
+
+        /* Sidebar */
+.sidebar {
+    width: 25%;
+    padding: 1em;
+    height: 32em;
+    overflow-y: visible;
+}
+
+.sidebar .profile {
+    background-color: rgba(255, 255, 255, 0.677);
+    padding: 1.5em;
+    box-shadow: 0em 0.25em 0.375em rgba(0, 0, 0, 0.1);
+    border-radius: 0.375em;
+    text-align: center;
+    height: 100%;
+}
+
+.profile-pic {
+    width: 8em;
+    height: 8em;
+    background-color: #d1d5db;
+    border-radius: 50%;
+    margin: 0 auto 1em;
+    object-fit: cover;
+}
+
+.profile h2 {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-bottom: 1.5em;
+}
+
+        /* Button Styles */
+        button, a.button {
+    display: block;
+    width: 100%;
+    padding: 0.75em 0;
+    border-radius: 0.375em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+button.primary, a.button.primary {
+    background-color: #FF4E88;
+    font-weight: bold;
+    
+}
+
+
+        /* Main Content Styles */
+
+        /*list boxes*/
+        .main-content { 
+            flex-grow: 1;
+            padding: 1em;
+        }
+
+        .container {
+            max-width: 75em;
+            margin: 2em auto;
+            display: flex;
+            padding-bottom: 20em;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 1.5em;
+        }
+
+        /* Lists Section Styles */
+        details {
+            border: 0.1em solid #FF8C9E; /*border of the main containters*/
+            background-color: rgba(255, 255, 255, 0.367);
+            border-radius: 0.5em;
+            margin-bottom: 1em;
+            padding: 1em;
+        }
+
+        /*The List title*/
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        .list-content {
+            padding: 1.5em;
+            background-color: rgba(255, 255, 255, 0.634);
+            border: 0.1em solid #FF8C9E;
+            
+        }
+
+        .list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(9.375em, 1fr));
+            gap: 1.5em;
+        }
+
+        .primary-list-item {
+            display: list-item;
+            list-style-position: inside;
+            list-style-type: disc;
+        }   
+
+        .secondary-list-item {
+            display: list-item;
+            list-style-position: inside;
+            list-style-type: disc;
+            text-indent: 2em;
+        }
+
+        a.coach :hover {
+            text-decoration:underline;
+            color: #FF4E88;
+        }
+        #morebutton{
+            background-color: #FF4E88;
+            width: 5em;
+            
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div id="navdiv"> 
+            <div id="logo">
+                <a href="index.html"><img src="images/logo.png" id="logoimage" alt="logo"></a>
+            </div>
+            <ul>
+                <li><a href="AdministratorDashboard.html" class="Page" accesskey="a" title="Alt + A (Admin Dashboard)"><strong>Administrator dashboard</strong></a></li>
+                <li><a href="ParentDashboard.html" class="Page" accesskey="p" title="Alt + P (Parent Dashboard)">Parent dashboard</a></li>
+                <li><a href="Coaches.html" class="Page" id="coachesPage" accesskey="c" title="Alt + C (Coaches Page)">Coaches</a></li>
+                <li><a href="Activities.html" class="Page" accesskey="t" title="Alt + T (Activities Page)">Activities</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- end navbar-->
+    <br>
+
+    <nav class="breadcrumbs">
+        <a href="index.html">Home</a> 
+        <a href="AdministratorDashboard.html">Administrator Dashboard</a>
+    </nav>
+
+    <!-- Administrator Dashboard Title -->
+    <div class="PageTitleContainer">
+        <div class="PageTitle">
+        <h1>Administrator Dashboard</h1>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <img src="images/Administrator.png" alt="Administrator" class="profile-pic">
+                <h2>Adam Jones</h2>
+                <a href="#" class="button primary">Centre Lists</a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Children List-->
+            <details>
+                <summary>All Children</summary>
+                <div class="list-content">
+                    <div class="list-grid">
+                        <ul id="ChildrenList">
+                           <li class="primary-list-item">Olivia Rich</li>
+                           <li class="primary-list-item">Fahad Yousef</li>
+                           <li class="primary-list-item">Georgia Brown</li>
+                          
+                        </ul>
+                        
+                </div>
+                <button id="morebutton">More</button>
+                </div>
+            </details>
+
+            <!-- Activities List -->
+<details>
+    <summary>All Activities</summary>
+    <div class="list-content">
+        <div>
+        <ul class="list-grid">
+            <!-- ACTIVITY 1 -->
+            <li class="primary-list-item"><strong>Swimming</strong><br>
+            Coached by: Nina<br>Registered Children:
+                <ul>
+                    <li class="secondary-list-item">Mona Saleh</li>
+                    <li class="secondary-list-item">Olivia Rich</li>
+                </ul>
+            </li>
+
+            <!-- ACTIVITY 2 -->
+            <li class="primary-list-item"><strong>Horse Riding</strong><br>
+            Coached by: Sofia<br>Registered Children:
+                <ul>
+                <li class="secondary-list-item">Georgia Brown</li>
+                </ul>
+            </li>
+
+            <!-- ACTIVITY 3 -->
+            <li class="primary-list-item"><strong>Volleyball</strong><br>
+            Coached by: Ahmed<br>Registered Children:
+            <ul>
+                <li class="secondary-list-item">Fahad Yousef</li>
+                <li class="secondary-list-item">Alex Earl</li>
+            </ul>
+            </li>
+
+            <!-- ACTIVITY 4 -->
+            <li class="primary-list-item"><strong>Ballet</strong><br>
+            Coached by: Sarah<br>Registered Children:
+            <ul>
+                <li class="secondary-list-item">Josh Rich</li>
+            </ul></li>
+
+            <!-- ACTIVITY 5 -->
+            <li class="primary-list-item"><strong>Gymnastics</strong><br>
+            Coached by: Natasha<br>Registered Children:<ul>
+                <li class="secondary-list-item">Georgia Brown</li>
+                <li class="secondary-list-item">Olivia Rich</li>
+            </ul></li>
+
+            <!-- ACTIVITY 6 -->
+            <li class="primary-list-item"><strong>Karate</strong><br>
+            Coached by: Khalid<br>Registered Children:<ul>
+                <li class="secondary-list-item">Fahad Yousef</li>
+            </ul></li>
+
+            <!-- ACTIVITY 7 -->
+            <li class="primary-list-item"><strong>Tennis</strong><br>
+            Coached by: David<br>Registered Children:<ul>
+                <li class="secondary-list-item">Mona Saleh</li>
+                <li class="secondary-list-item">Alex Earl</li>
+            </ul></li>
+
+            <!-- ACTIVITY 8 -->
+            <li class="list-item"><strong>Football</strong><br>
+            Coached by: Omar<br>Registered Children:<ul>
+                <li class="secondary-list-item">Josh Rich</li>
+            </ul></li>
+            </ul>
+        </div>
+    </div>
+
+</details>
+        
+            <details>
+                <summary>All Coaches</summary>
+                <div class="list-content">
+                    <div>
+                        <ul class="list-grid">
+                            <!-- COACH 1 -->
+                            <li class="list-item">
+                                <a href="schedule.html" class="coach"><strong>Nina</strong></a><br>
+                                Coaches:
+                                <ul><li class="secondary-list-item">  Swimming </li></ul>
+                            </li>
+
+                            <!-- COACH 2 -->
+                            <li class="list-item">
+                                <a href="schedule.html" class="coach"><strong>Sofia</strong></a><br>
+                                Coaches:
+                                <ul><li class="secondary-list-item">  Horse Riding </li></ul>
+                            </li>
+
+                            <!-- COACH 3 -->
+                            <li class="list-item">
+                                <a href="schedule.html" class="coach"><strong>Ahmed</strong></a><br>
+                                Coaches:
+                                <ul><li class="secondary-list-item">Volleyball</li></ul>
+                            </li>
+
+                            <!-- COACH 4 -->
+                            <li class="list-item">
+                                <a href="schedule.html" class="coach"><strong>Sarah</strong></a><br>
+                                Coaches:
+                                <ul><li class="secondary-list-item">  Ballet </li></ul>
+                            </li>
+
+                            <!-- COACH 5 -->
+                            <li class="list-item">
+                                <a href="schedule.html" class="coach"><strong>Natasha</strong></a><br>
+                                Coaches:
+                                <ul><li class="secondary-list-item">  Gymnastics </li></ul>
+                            </li>
+
+                            <!-- COACH 6 -->
+                            <li class="list-item">
+                                <a href="schedule.html" class="coach"><strong>Khalid</strong></a><br>
+                                Coaches:
+                                <ul><li class="secondary-list-item">  Karate </li></ul>
+                            </li>
+
+                            <!-- COACH 7 -->
+                            <li class="list-item">
+                                <a href="schedule.html" class="coach"><strong>David</strong></a><br>
+                                Coaches:
+                                <ul><li class="secondary-list-item">  Tennis </li></ul>
+                            </li>
+
+                            <!-- COACH 8 -->
+                            <li class="list-item">
+                                <a href="schedule.html" class="coach"><strong>Omar</strong></a><br>
+                                Coaches:
+                                <ul><li class="secondary-list-item">  Football </li></ul>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+
+
+    <footer>
+        <div id="footerContainer">
+        <div id="footer">
+            <div class="footer-section" id="footer-section-logo"><img src="images/logo.png" alt="logo" ></div>
+
+
+                 <div class="footer-section">
+                    
+                    <h4 id="contactUs">Contact Us</h4>
+                    <div class="contactus">
+                        
+
+                       <div>
+                         <img src="images/phone.png" alt="phone" id="phoneIcon" class="ContactIcons"> 
+                         <p id="phone">+966&nbsp;53667&nbsp;2891</p>
+                     </div>
+                      <div>
+                         <img src="images/mail.png" alt="mail" id="mailIcon" class="ContactIcons"> 
+                         <p id="mail">KiddoHeaven@gmail.com</p>
+                     </div>
+                    
+                      <div>
+                         <img src="images/location.png" alt="location" id="locationIcon" class="ContactIcons">
+                          <p id="location">Riyadh, Saudi Arabia</p>
+                     </div>
+                
+                    </div>
+                    <br>
+                   
+                </div>
+                
+
+                <div class="footer-section">
+                    <h4 id="socialMedia" >Social Media</h4>
+                    <div id="socialMediaIcons" ><a href="https://www.instagram.com/kidd.oheaven?igsh=dXhuenZjeWZwYnlu"><img src="images/instagram.png" alt="instagram" class="ContactIcons"></a> <a href="https://www.facebook.com/share/1AMUM8kzv4/?mibextid=wwXIfr" ><img src="images/facebook.png" alt="facebook" class="ContactIcons"> </a><a href="https://x.com/kiddo_heaven?s=21"><img src="images/x.png" alt="x" class="ContactIcons"></a></div>
+                </div>
+                
+               
+                
+            
+              
+            
+
+        </div>
+        <div id="copyRight"><p>© 2025 Website. All rights reserved.</p></div>
+        <br>
+        
+    </div>
+    </footer>
+
+    <script src="AdminScript.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

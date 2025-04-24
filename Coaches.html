@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Coaches</title>
+
+
+    <style>
+#coachesPage{
+    font-weight: bold;
+}
+
+
+.Scroll{
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 0.625em; /* 10px */
+    margin: 10em 0em; /* 160px */
+    padding: 1em; 
+    scrollbar-color: #FF8C9E #FFF;
+}
+    
+
+
+
+
+.coache{
+    background-color:rgba(255, 255, 255, 0.677);
+    max-width: 12.5em /*200px*/;
+    min-width: 12.5em /*200px*/;
+    height: 25em; /* 400px */
+    position: relative;
+    margin-left:0.3125em; /* 5px */
+    border-radius: 1.25em 1.25em; /* 20px */
+    text-align: center;
+    overflow: hidden; /* Ensures no overflow */
+   
+   
+}
+#coache1::before,#coache2::before,#coache3::before,#coache4::before,#coache5::before,#coache6::before,#coache7::before,#coache8::before{
+    content: '';
+    height: 1.25em; /* 20px */
+    width: 100%;
+    position: absolute;
+    border-top-left-radius: 1.25em/* 20px */;
+    border-top-right-radius: 1.25em/* 20px */;
+    top: 0; /* Ensure it stays at the top of .coache */
+    left: 0;
+}
+
+
+#coache2::before,#coache8::before,#coache5::before{
+   
+    background-color:#FFDA76;
+   
+}
+
+#coache3::before,#coache6::before{
+    
+    background-color:#FF8C9E;
+   
+}
+
+#coache4::before,#coache1::before,#coache7::before{
+    
+    background-color:#FF4E88;
+  
+}
+
+
+.coacheImg{
+    max-width: 60%;
+    height: auto;
+    margin-top: 1.5625em; /* 25px */
+}
+
+
+.Information{
+    text-align: center;
+    margin-top: 2.5em; /* 40px */
+    white-space: normal;
+}
+
+
+@media (max-width: 768px) {
+    .Scroll {
+        justify-content: flex-start;
+        padding-bottom: 0.625em; /* 10px */
+    }
+    .coache {
+        min-width: 8.75em /*140px*/;
+        height: 20em /*320px*/; /* Reduce height slightly */
+    }
+    .Information{
+        margin-top: 1.5em;
+    }
+   
+}
+    </style>
+</head>
+<body>
+
+    <!--navbar-->
+    <nav id="navbar">
+        <div id="navdiv"> 
+            <div id="logo">
+                <a href="index.html"><img src="images/logo.png" id="logoimage" alt="logo"></a>
+            </div>
+            <ul>
+                <li><a href="AdministratorDashboard.html" class="Page" accesskey="a" title="Alt + A (Admin Dashboard)">Administrator dashboard</a></li>
+                <li><a href="ParentDashboard.html" class="Page" accesskey="p" title="Alt + P (Parent Dashboard)">Parent dashboard</a></li>
+                <li><a href="Coaches.html" class="Page" id="coachesPage" accesskey="c" title="Alt + C (Coaches Page)">Coaches</a></li>
+                <li><a href="Activities.html" class="Page" accesskey="t" title="Alt + T (Activities Page)">Activities</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- end navbar-->
+    <br>
+    <!--breadcrumbs-->
+    <p class="breadcrumbs"><a href="index.html">Home </a> 
+    <a href="Coaches.html">Coaches</a></p>
+     <!-- end breadcrumbs-->
+
+      <!--page title-->
+    <div class="PageTitleContainer"><div class="PageTitle"><h1>Coaches</h1></div></div>
+       <!--end page title-->
+      
+    
+
+    <div class="Scroll">
+    <div id="coache1" class="coache"> <img src="images/Ahmed.jpg" alt="Coache Ahmed" class="coacheImg"><p class="Information">Ahmed</p><p class="Information">Area Of Expertise: Volleyball</p></div>
+    
+    <div id="coache2" class="coache"> <img src="images/Sofia.jpg" alt="Coache Sofia" class="coacheImg"><p class="Information">Sofia</p><p class="Information">Area Of Expertise: Horse Riding</p></div>
+    
+    <div id="coache3" class="coache"><img src="images/Khalid.jpg" alt="Coache Khalid" class="coacheImg"><p class="Information">Khalid</p><p class="Information">Area Of Expertise:Karate</p></div>
+    
+    <div id="coache4" class="coache"> <img src="images/Natasha.jpg" alt="Coache Natasha" class="coacheImg"><p class="Information">Natasha</p><p class="Information">Area Of Expertise: Gymnastics</p></div>
+    
+    <div id="coache5" class="coache"> <img src="images/Omar.jpg" alt="Coache Omar" class="coacheImg"><p class="Information">Omar</p><p class="Information">Area Of Expertise: Football</p></div>
+    
+    <div id="coache6" class="coache"><img src="images/Nina.jpg" alt="Coache Nina" class="coacheImg"><p class="Information">Nina</p><p class="Information">Area Of Expertise: Swimming</p></div>
+    
+    <div id="coache7" class="coache"> <img src="images/David.jpg" alt="Coache David" class="coacheImg"><p class="Information">David</p><p class="Information">Area Of Expertise: Tennis</p></div>
+    
+    <div id="coache8" class="coache"><img src="images/Sarah.jpg" alt="Coache Sarah" class="coacheImg"><p class="Information">Sarah</p><p class="Information">Area Of Expertise: Ballet</p></div>
+    </div>
+ 
+
+    
+
+    <footer>
+        <div id="footerContainer">
+        <div id="footer">
+            <div class="footer-section" id="footer-section-logo"><img src="images/logo.png" alt="logo" ></div>
+
+
+                 <div class="footer-section">
+                    
+                    <h4 id="contactUs">Contact Us</h4>
+                    <div class="contactus">
+                        
+
+                       <div>
+                         <img src="images/phone.png" alt="phone" id="phoneIcon" class="ContactIcons"> 
+                         <p id="phone">+966&nbsp;53667&nbsp;2891</p>
+                     </div>
+                      <div>
+                         <img src="images/mail.png" alt="mail" id="mailIcon" class="ContactIcons"> 
+                         <p id="mail">KiddoHeaven@gmail.com</p>
+                     </div>
+                    
+                      <div>
+                         <img src="images/location.png" alt="location" id="locationIcon" class="ContactIcons">
+                          <p id="location">Riyadh, Saudi Arabia</p>
+                     </div>
+                
+                    </div>
+                    <br>
+                   
+                </div>
+                
+
+                <div class="footer-section">
+                    <h4 id="socialMedia" >Social Media</h4>
+                    <div id="socialMediaIcons" ><a href="https://www.instagram.com/kidd.oheaven?igsh=dXhuenZjeWZwYnlu"><img src="images/instagram.png" alt="instagram" class="ContactIcons"></a> <a href="https://www.facebook.com/share/1AMUM8kzv4/?mibextid=wwXIfr" ><img src="images/facebook.png" alt="facebook" class="ContactIcons"> </a><a href="https://x.com/kiddo_heaven?s=21"><img src="images/x.png" alt="x" class="ContactIcons"></a></div>
+                </div>
+                
+               
+                
+            
+              
+            
+
+        </div>
+        <div id="copyRight"><p>© 2025 Website. All rights reserved.</p></div>
+        <br>
+        
+    </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
